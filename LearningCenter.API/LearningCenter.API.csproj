@@ -18,7 +18,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Learning\Domain\Repositories\" />
       <Folder Include="Learning\Interfaces\Internal\" />
       <Folder Include="Learning\Interfaces\Rest\" />
       <Folder Include="Learning\Mapping\" />
