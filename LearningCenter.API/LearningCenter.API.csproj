@@ -20,7 +20,6 @@
     <ItemGroup>
       <Folder Include="Learning\Interfaces\Internal\" />
       <Folder Include="Learning\Interfaces\Rest\" />
-      <Folder Include="Learning\Mapping\" />
       <Folder Include="Learning\Persistence\Repositories\" />
       <Folder Include="Learning\Services\" />
       <Folder Include="Shared\Extensions\" />
