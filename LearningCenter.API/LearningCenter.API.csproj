@@ -20,7 +20,6 @@
     <ItemGroup>
       <Folder Include="Learning\Interfaces\Internal\" />
       <Folder Include="Learning\Interfaces\Rest\" />
-      <Folder Include="Learning\Services\" />
     </ItemGroup>
 
 </Project>
