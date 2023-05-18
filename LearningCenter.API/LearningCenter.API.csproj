@@ -22,7 +22,6 @@
       <Folder Include="Learning\Interfaces\Rest\" />
       <Folder Include="Learning\Persistence\Repositories\" />
       <Folder Include="Learning\Services\" />
-      <Folder Include="Shared\Extensions\" />
       <Folder Include="Shared\Persistence\Contexts\" />
       <Folder Include="Shared\Persistence\Repositories\" />
     </ItemGroup>
