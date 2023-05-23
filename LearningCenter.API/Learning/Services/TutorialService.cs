@@ -61,9 +61,48 @@ public class TutorialService : ITutorialService
         }
     }
 
-    public Task<TutorialResponse> UpdateAsync(int tutorialId, Tutorial tutorial)
+    public async Task<TutorialResponse> UpdateAsync(int tutorialId, Tutorial tutorial)
     {
-        throw new NotImplementedException();
+        // Validate if tutorials exists
+
+        var existingTutorial = await _tutorialRepository.FindByIdAsync(tutorialId);
+
+        if (existingTutorial == null)
+            return new TutorialResponse("Tutorial not found.");
+        
+        // Validate existence of assigned category
+        
+        var existingCategory = await _categoryRepository.FindByIdAsync(tutorial.CategoryId);
+        
+        if (existingCategory == null)
+            return new TutorialResponse("Invalid category.");
+        
+        // Validate if Title is already used
+        
+        var existingTutorialWithTitle = await _tutorialRepository.FindByTitleAsync(tutorial.Title);
+        
+        if (existingTutorialWithTitle != null && existingTutorialWithTitle.Id != tutorialId)
+            return new TutorialResponse("Title is already used.");
+        
+        // Modify fields
+        
+        existingTutorial.Title = tutorial.Title;
+        existingTutorial.Description = tutorial.Description;
+        
+        // Perform update
+        
+        try
+        {
+            _tutorialRepository.Update(existingTutorial);
+            await _unitOfWork.CompleteAsync();
+            
+            return new TutorialResponse(existingTutorial);
+        }
+        catch (Exception e)
+        {
+            // Error handling
+            return new TutorialResponse($"An error occurred while updating the tutorial: {e.Message}");
+        }
     }
 
     public Task<TutorialResponse> DeleteAsync(int tutorialId)
