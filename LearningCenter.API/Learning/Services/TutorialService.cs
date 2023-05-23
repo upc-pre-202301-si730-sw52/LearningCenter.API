@@ -105,8 +105,28 @@ public class TutorialService : ITutorialService
         }
     }
 
-    public Task<TutorialResponse> DeleteAsync(int tutorialId)
+    public async Task<TutorialResponse> DeleteAsync(int tutorialId)
     {
-        throw new NotImplementedException();
+        // Validate if tutorials exists
+        
+        var existingTutorial = await _tutorialRepository.FindByIdAsync(tutorialId);
+        
+        if (existingTutorial == null)
+            return new TutorialResponse("Tutorial not found.");
+        
+        // Perform delete
+        
+        try
+        {
+            _tutorialRepository.Remove(existingTutorial);
+            await _unitOfWork.CompleteAsync();
+            
+            return new TutorialResponse(existingTutorial);
+        }
+        catch (Exception e)
+        {
+            // Error handling
+            return new TutorialResponse($"An error occurred while deleting the tutorial: {e.Message}");
+        }
     }
 }
