@@ -18,8 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Learning\Interfaces\Internal\" />
-      <Folder Include="Learning\Interfaces\Rest\" />
+      <Folder Include="Learning\Interfaces\Rest\Controllers\" />
     </ItemGroup>
 
 </Project>
