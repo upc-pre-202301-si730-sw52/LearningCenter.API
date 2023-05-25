@@ -6,7 +6,7 @@ namespace LearningCenter.API.Learning.Mapping;
 
 public class ModelToResourceProfile : Profile
 {
-    protected ModelToResourceProfile()
+    public ModelToResourceProfile()
     {
         CreateMap<Category, CategoryResource>();
         CreateMap<Tutorial, TutorialResource>();
