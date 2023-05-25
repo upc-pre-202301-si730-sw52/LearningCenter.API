@@ -41,6 +41,8 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ITutorialRepository, TutorialRepository>();
+builder.Services.AddScoped<ITutorialService, TutorialService>();
 
 // AutoMapper Configuration
 

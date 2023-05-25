@@ -5,10 +5,11 @@ namespace LearningCenter.API.Learning.Services;
 public class LearningContextFacade : ILearningContextFacade
 {
     private readonly CategoryService _categoryService;
+    private readonly TutorialService _tutorialService;
     
     public int TotalTutorials()
     {
-        return 0;
+        return _tutorialService.ListAsync().Result.Count();
     }
 
     public int TotalCategories()
