@@ -13,4 +13,6 @@ public class Tutorial
     public int CategoryId { get; set; }
     
     public Category Category { get; set; }
+    
+    public List<TutorialTag> TutorialTags { get; set; }
 }
