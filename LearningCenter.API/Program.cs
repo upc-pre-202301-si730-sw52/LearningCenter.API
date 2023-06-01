@@ -1,5 +1,8 @@
+using LearningCenter.API.Analytics.Domain.Services;
+using LearningCenter.API.Analytics.Services;
 using LearningCenter.API.Learning.Domain.Repositories;
 using LearningCenter.API.Learning.Domain.Services;
+using LearningCenter.API.Learning.Interfaces.Internal;
 using LearningCenter.API.Learning.Persistence.Repositories;
 using LearningCenter.API.Learning.Services;
 using LearningCenter.API.Shared.Domain.Repositories;
@@ -43,6 +46,12 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ITutorialRepository, TutorialRepository>();
 builder.Services.AddScoped<ITutorialService, TutorialService>();
+builder.Services.AddScoped<ILearningContextFacade, LearningContextFacade>();
+
+// Analytics Bounded Context Injection Configuration
+
+builder.Services.AddScoped<ILearningAnalyticsService, LearningAnalyticsService>();
+
 
 // AutoMapper Configuration
 
