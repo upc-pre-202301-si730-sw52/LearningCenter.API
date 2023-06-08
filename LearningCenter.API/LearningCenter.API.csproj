@@ -21,7 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Security\Authorization\Middleware\" />
       <Folder Include="Security\Interfaces\" />
       <Folder Include="Security\Mapping\" />
       <Folder Include="Security\Persistence\" />
