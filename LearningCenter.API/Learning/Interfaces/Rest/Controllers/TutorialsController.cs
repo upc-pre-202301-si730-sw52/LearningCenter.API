@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LearningCenter.API.Learning.Interfaces.Rest.Controllers;
 
 [ApiController]
-[Route("api/v1[controller]")]
+[Route("api/v1/[controller]")]
 public class TutorialsController : ControllerBase
 {
     private readonly ITutorialService _tutorialService;
