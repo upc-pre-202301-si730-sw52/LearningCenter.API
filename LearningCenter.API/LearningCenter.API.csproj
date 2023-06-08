@@ -22,7 +22,6 @@
 
     <ItemGroup>
       <Folder Include="Security\Authorization\" />
-      <Folder Include="Security\Domain\Services\" />
       <Folder Include="Security\Exceptions\" />
       <Folder Include="Security\Interfaces\" />
       <Folder Include="Security\Mapping\" />
