@@ -53,6 +53,34 @@ public class JwtHandler : IJwtHandler
 
     public int? ValidateToken(string token)
     {
-        throw new NotImplementedException();
+        // If token is null or empty
+        if (string.IsNullOrEmpty(token))
+        {
+            // No action, just return null
+            return null;
+        }
+        
+        // Otherwise, perform validation
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+        try
+        {
+            tokenHandler.ValidateToken(token, new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuer = false,
+                // Expiration without delay
+                ClockSkew = TimeSpan.Zero
+            }, out var validatedToken);
+            var jwtToken = (JwtSecurityToken) validatedToken;
+            var userId = int.Parse(jwtToken.Claims.First(claim => claim.Type == ClaimTypes.Sid).Value);
+            return userId;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return null;
+        }
     }
 }
