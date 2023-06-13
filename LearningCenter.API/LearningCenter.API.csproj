@@ -22,9 +22,7 @@
 
     <ItemGroup>
       <Folder Include="Security\Interfaces\" />
-      <Folder Include="Security\Mapping\" />
       <Folder Include="Security\Persistence\" />
-      <Folder Include="Security\Resources\" />
       <Folder Include="Security\Services\" />
     </ItemGroup>
 
